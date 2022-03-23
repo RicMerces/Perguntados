@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './questao.dart';
 
 void main() {
   runApp(PergutarApp());
@@ -8,10 +9,12 @@ class PergutarApp extends StatefulWidget {
   const PergutarApp({Key? key}) : super(key: key);
 
   @override
-  _MainState createState() => _MainState();
+  _PerguntaAppState createState() {
+    return _PerguntaAppState();
+  }
 }
 
-class _MainState extends State<PergutarApp> {
+class _PerguntaAppState extends State<PergutarApp> {
   var novaPergunta = 0;
 
   int qtdResponder() {
@@ -42,7 +45,7 @@ class _MainState extends State<PergutarApp> {
         ),
         body: Column(
           children: [
-            Text(
+            Questao(
               Perguntas[novaPergunta > (Perguntas.length - 1)
                   ? novaPergunta = 0
                   : novaPergunta],
