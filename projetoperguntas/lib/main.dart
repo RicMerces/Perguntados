@@ -4,11 +4,20 @@ void main() {
   runApp(PergutarApp());
 }
 
-class PergutarApp extends StatelessWidget {
+class PergutarApp extends StatefulWidget {
+  const PergutarApp({Key? key}) : super(key: key);
+
+  @override
+  _MainState createState() => _MainState();
+}
+
+class _MainState extends State<PergutarApp> {
   var novaPergunta = 0;
 
   int qtdResponder() {
-    novaPergunta++;
+    setState(() {
+      novaPergunta++;
+    });
     return novaPergunta;
   }
 
@@ -22,8 +31,6 @@ class PergutarApp extends StatelessWidget {
     'Qual o time com mais mundiais ?',
     'Em que time jogou Garrincha ? ',
   ];
-
-  PergutarApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,3 +65,10 @@ class PergutarApp extends StatelessWidget {
     );
   }
 }
+
+// class PergutarApp extends StatelessWidget {
+//   PergutarApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {}
+// }
