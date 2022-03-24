@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projetoperguntas/btn_resposta.dart';
 import './questao.dart';
 
 void main() {
@@ -24,14 +25,14 @@ class _PerguntaAppState extends State<PergutarApp> {
     return novaPergunta;
   }
 
-  void responder() {
+  void _responder() {
     print('Pergunta respondida');
     qtdResponder();
   }
 
   final Perguntas = [
     'Qual o maior time do Nordeste ?',
-    'Qual o time com mais mundiais ?',
+    'Qual o time Brasileiro com mais mundiais ?',
     'Em que time jogou Garrincha ? ',
   ];
 
@@ -40,7 +41,6 @@ class _PerguntaAppState extends State<PergutarApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blueGrey,
           title: Text('Perguntas'),
         ),
         body: Column(
@@ -50,18 +50,10 @@ class _PerguntaAppState extends State<PergutarApp> {
                   ? novaPergunta = 0
                   : novaPergunta],
             ),
-            ElevatedButton(
-              onPressed: responder,
-              child: Text('Botao01'),
-            ),
-            ElevatedButton(
-              onPressed: responder,
-              child: Text('Botao01'),
-            ),
-            ElevatedButton(
-              onPressed: responder,
-              child: Text('Botao01'),
-            ),
+            BtnResposta('Pergunta1', _responder),
+            BtnResposta('Pergunta2', _responder),
+            BtnResposta('Pergunta3', _responder),
+            BtnResposta('Pergunta4', _responder),
           ],
         ),
       ),
