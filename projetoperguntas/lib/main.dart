@@ -30,10 +30,8 @@ class _PerguntaAppState extends State<PergutarApp> {
     qtdResponder();
   }
 
-  final Perguntas = [
-    'Qual o maior time do Nordeste ?',
-    'Qual o time Brasileiro com mais mundiais ?',
-    'Em que time jogou Garrincha ? ',
+  final List<Map<String, Object>> Perguntas = [
+    {'texto': 'Qual é a sua cor favorita'}
   ];
 
   @override
@@ -45,11 +43,11 @@ class _PerguntaAppState extends State<PergutarApp> {
         ),
         body: Column(
           children: [
-            Questao(
-              Perguntas[novaPergunta > (Perguntas.length - 1)
-                  ? novaPergunta = 0
-                  : novaPergunta],
-            ),
+            // Questao(
+            //     // Perguntas[novaPergunta > (Perguntas.length - 1)
+            //     //     ? novaPergunta = 0
+            //     //     : novaPergunta],
+            //     ),
             BtnResposta('Pergunta1', _responder),
             BtnResposta('Pergunta2', _responder),
             BtnResposta('Pergunta3', _responder),
