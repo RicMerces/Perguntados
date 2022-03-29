@@ -52,11 +52,17 @@ class _PerguntaAppState extends State<PergutarApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> respostas = [];
+    // List<Widget> respostas = [];
+    List<String> respostas =
+        Perguntas[temTodas ? _novaPergunta = 0 : _novaPergunta]
+            .cast()['respostas'];
+    List<Widget> widgets =
+        respostas.map((texto) => BtnResposta(texto, _responder)).toList();
 
-    for (String textoResp in Perguntas[_novaPergunta].cast()['respostas']) {
-      respostas.add(BtnResposta(textoResp, _responder));
-    }
+    // for (String textoResp in respostas) {
+    //   // respostas.add(BtnResposta(textoResp, _responder));
+    //   widgets.add(BtnResposta(textoResp, _responder));
+    // }
 
     return MaterialApp(
       home: Scaffold(
@@ -69,7 +75,8 @@ class _PerguntaAppState extends State<PergutarApp> {
               Perguntas[temTodas ? _novaPergunta = 0 : _novaPergunta]['texto']
                   .toString(),
             ),
-            ...respostas
+            // ...respostas
+            ...widgets
           ],
         ),
       ),
