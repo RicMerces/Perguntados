@@ -19,19 +19,24 @@ class _PerguntaAppState extends State<PergutarApp> {
   var _novaPergunta = 0;
 
   void qtdResponder() {
-    setState(() {
-      _novaPergunta++;
-    });
+    if (temPerguntaSelecionada) {
+      setState(() {
+        _novaPergunta++;
+      });
+    }
   }
 
-  bool get temTodas => _novaPergunta >= Perguntas.length;
+  // bool get temTodas => _novaPergunta >= _perguntas.length;
+  // temTodas ? _novaPergunta = 0 :
+
+  bool get temPerguntaSelecionada => _novaPergunta < _perguntas.length;
 
   void _responder() {
     print('Pergunta respondida');
     qtdResponder();
   }
 
-  final List<Map<String, Object>> Perguntas = [
+  final List<Map<String, Object>> _perguntas = [
     {
       'texto': 'Qual é a sua cor favorita',
       'respostas': ['Azul', 'Vermelho', 'Branco', 'Preto']
@@ -53,9 +58,9 @@ class _PerguntaAppState extends State<PergutarApp> {
   @override
   Widget build(BuildContext context) {
     // List<Widget> respostas = [];
-    List<String> respostas =
-        Perguntas[temTodas ? _novaPergunta = 0 : _novaPergunta]
-            .cast()['respostas'];
+    List<String> respostas = temPerguntaSelecionada
+        ? _perguntas[_novaPergunta].cast()['respostas']
+        : [];
     List<Widget> widgets =
         respostas.map((texto) => BtnResposta(texto, _responder)).toList();
 
@@ -66,20 +71,25 @@ class _PerguntaAppState extends State<PergutarApp> {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Perguntas'),
-        ),
-        body: Column(
-          children: [
-            Questao(
-              Perguntas[temTodas ? _novaPergunta = 0 : _novaPergunta]['texto']
-                  .toString(),
-            ),
-            // ...respostas
-            ...widgets
-          ],
-        ),
-      ),
+          appBar: AppBar(
+            title: Text('Perguntas'),
+          ),
+          body: temPerguntaSelecionada
+              ? Column(
+                  children: [
+                    Questao(
+                      _perguntas[_novaPergunta]['texto'].toString(),
+                    ),
+                    // ...respostas
+                    ...widgets
+                  ],
+                )
+              : Center(
+                  child: Text(
+                    'Parabéns',
+                    style: TextStyle(fontSize: 28),
+                  ),
+                )),
     );
   }
 }
