@@ -42,16 +42,22 @@ class _PerguntaAppState extends State<PergutarApp> {
     },
     {
       'texto': 'Qual sua materia escolar favorita',
-      'resposta': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
+      'respostas': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
     },
     {
-      'texto': 'Qual a sua materia escolar favorita',
-      'resposta': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
+      'texto': 'Onde Pelé jogou ?',
+      'respostas': ['Bahia', 'São Paulo', 'Corinthians', 'Santos']
     },
   ];
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> respostas = [];
+
+    for (String textoResp in Perguntas[_novaPergunta].cast()['respostas']) {
+      respostas.add(BtnResposta(textoResp, _responder));
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -63,10 +69,7 @@ class _PerguntaAppState extends State<PergutarApp> {
               Perguntas[temTodas ? _novaPergunta = 0 : _novaPergunta]['texto']
                   .toString(),
             ),
-            BtnResposta('Pergunta1', _responder),
-            BtnResposta('Pergunta2', _responder),
-            BtnResposta('Pergunta3', _responder),
-            BtnResposta('Pergunta4', _responder),
+            ...respostas
           ],
         ),
       ),
