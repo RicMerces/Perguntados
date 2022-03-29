@@ -16,13 +16,13 @@ class PergutarApp extends StatefulWidget {
 }
 
 class _PerguntaAppState extends State<PergutarApp> {
-  var novaPergunta = 0;
+  var _novaPergunta = 0;
 
   int qtdResponder() {
     setState(() {
-      novaPergunta++;
+      _novaPergunta++;
     });
-    return novaPergunta;
+    return _novaPergunta;
   }
 
   void _responder() {
@@ -31,11 +31,23 @@ class _PerguntaAppState extends State<PergutarApp> {
   }
 
   final List<Map<String, Object>> Perguntas = [
-    {'texto': 'Qual é a sua cor favorita'}
+    {
+      'texto': 'Qual é a sua cor favorita',
+      'respostas': ['Azul', 'Vermelho', 'Branco', 'Preto']
+    },
+    {
+      'texto': 'Qual seu animal favorito',
+      'respostas': ['Cachorro', 'Gato', 'Lobo', 'Leão']
+    },
+    {
+      'texto': 'Qual sua materia escolar favorita',
+      'resposta': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
+    var novaPergunta = _novaPergunta;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -44,10 +56,8 @@ class _PerguntaAppState extends State<PergutarApp> {
         body: Column(
           children: [
             // Questao(
-            //     // Perguntas[novaPergunta > (Perguntas.length - 1)
-            //     //     ? novaPergunta = 0
-            //     //     : novaPergunta],
-            //     ),
+            //   // Perguntas[novaPergunta]['texto'].toString(),
+            // ),
             BtnResposta('Pergunta1', _responder),
             BtnResposta('Pergunta2', _responder),
             BtnResposta('Pergunta3', _responder),
