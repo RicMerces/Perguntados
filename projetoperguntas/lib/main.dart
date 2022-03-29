@@ -18,12 +18,13 @@ class PergutarApp extends StatefulWidget {
 class _PerguntaAppState extends State<PergutarApp> {
   var _novaPergunta = 0;
 
-  int qtdResponder() {
+  void qtdResponder() {
     setState(() {
       _novaPergunta++;
     });
-    return _novaPergunta;
   }
+
+  bool get temTodas => _novaPergunta >= Perguntas.length;
 
   void _responder() {
     print('Pergunta respondida');
@@ -43,11 +44,14 @@ class _PerguntaAppState extends State<PergutarApp> {
       'texto': 'Qual sua materia escolar favorita',
       'resposta': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
     },
+    {
+      'texto': 'Qual a sua materia escolar favorita',
+      'resposta': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
-    var novaPergunta = _novaPergunta;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -55,9 +59,10 @@ class _PerguntaAppState extends State<PergutarApp> {
         ),
         body: Column(
           children: [
-            // Questao(
-            //   // Perguntas[novaPergunta]['texto'].toString(),
-            // ),
+            Questao(
+              Perguntas[temTodas ? _novaPergunta = 0 : _novaPergunta]['texto']
+                  .toString(),
+            ),
             BtnResposta('Pergunta1', _responder),
             BtnResposta('Pergunta2', _responder),
             BtnResposta('Pergunta3', _responder),
