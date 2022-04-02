@@ -84,7 +84,7 @@ class _PerguntaAppState extends State<PergutarApp> {
                     ...widgets
                   ],
                 )
-              : Center(
+              : const Center(
                   child: Text(
                     'Parabéns',
                     style: TextStyle(fontSize: 28),
