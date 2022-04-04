@@ -40,20 +40,58 @@ class _PerguntaAppState extends State<PergutarApp> {
 
   final List<Map<String, Object>> _perguntas = [
     {
-      'texto': 'Qual é a sua cor favorita',
-      'respostas': ['Azul', 'Vermelho', 'Branco', 'Preto']
+      'texto': 'Qual a minha cor favorita',
+      'respostas': [
+        {'texto': 'Preto', 'nota': 10},
+        {'texto': 'Branco', 'nota': 0},
+        {'texto': 'Azul', 'nota': 0},
+        {'texto': 'Verde', 'nota': 0},
+      ],
     },
     {
-      'texto': 'Qual seu animal favorito',
-      'respostas': ['Cachorro', 'Gato', 'Lobo', 'Leão']
+      'texto': 'Qual é minha serie favorita',
+      'respostas': [
+        {'texto': 'Peaky Blinders', 'nota': 5},
+        {'texto': 'Vikings', 'nota': 10},
+        {'texto': 'The last Kingdoom', 'nota': 2.5},
+        {'texto': 'Mandalorian', 'nota': 5},
+      ],
     },
     {
-      'texto': 'Qual sua materia escolar favorita',
-      'respostas': ['Matematica', 'Historia', 'Linguagens', 'Geografia']
+      'texto': 'Qual é meu filme favorito',
+      'respostas': [
+        {'texto': 'Rei Leão', 'nota': 0},
+        {'texto': 'Batman o cavaleiro das trevas', 'nota': 0},
+        {'texto': 'Homem Aranha sem volta para casa', 'nota': 0},
+        {'texto': 'Avatar', 'nota': 10},
+      ],
     },
     {
-      'texto': 'Onde Pelé jogou ?',
-      'respostas': ['Bahia', 'São Paulo', 'Corinthians', 'Santos']
+      'texto': 'Qual o meu time do coração',
+      'respostas': [
+        {'texto': 'Cruzeiro', 'nota': 0},
+        {'texto': 'Santos', 'nota': 0},
+        {'texto': 'Bahia', 'nota': 10},
+        {'texto': 'Vasco da Gama', 'nota': 0},
+      ],
+    },
+    {
+      'texto': 'Qual o meu jogo favorito',
+      'respostas': [
+        {'texto': 'Raimbow Six Siege', 'nota': 2.5},
+        {'texto': 'The last of us part 2', 'nota': 2.5},
+        {'texto': 'Far Cry 4', 'nota': 10},
+        {'texto': 'Resident Evil 5', 'nota': 2.5},
+      ],
+    },
+    {
+      'texto': 'Qual o meu anime favorito',
+      'respostas': [
+        {'texto': 'Vinland Saga', 'nota': 5},
+        {'texto': 'Sword art Online', 'nota': 0},
+        {'texto': 'Naruto Shippuden', 'nota': 5},
+        {'texto': 'Jojo bizarre adventures', 'nota': 0},
+      ],
     },
   ];
 
