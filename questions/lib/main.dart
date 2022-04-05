@@ -123,7 +123,9 @@ class _PerguntaAppState extends State<PergutarApp> {
                 perguntas: _perguntas,
                 novaPergunta: _novaPergunta,
                 responder: _responder)
-            : Resultado(),
+            : Resultado(
+                nota: _pontuacaoFinal,
+              ),
       ),
     );
   }
