@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Resultado extends StatelessWidget {
   final int nota;
+  final void Function() quandoReiniciarQuest;
 
-  Resultado({required this.nota});
+  Resultado({required this.nota, required this.quandoReiniciarQuest});
 
   String get fraseFinal {
     String resultado = '\nPontuacao = $nota';
@@ -25,14 +26,36 @@ class Resultado extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Text(
-      fraseFinal,
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    ));
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+            child: Text(
+          fraseFinal,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+        )),
+        TextButton(
+          onPressed: quandoReiniciarQuest,
+          child: Text(
+            'Reiniciar',
+            style: TextStyle(color: Colors.green, fontSize: 20),
+          ),
+        ),
+      ],
+    );
+
+    // return Center(
+    //     child: Text(
+    //   fraseFinal,
+    //   textAlign: TextAlign.center,
+    //   style: TextStyle(
+    //     fontSize: 30,
+    //     fontWeight: FontWeight.bold,
+    //   ),
+    // ));
   }
 }

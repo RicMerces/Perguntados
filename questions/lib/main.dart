@@ -42,6 +42,13 @@ class _PerguntaAppState extends State<PergutarApp> {
     qtdResponder(nota);
   }
 
+  void _reiniciarQuest() {
+    setState(() {
+      _novaPergunta = 0;
+      _pontuacaoFinal = 0;
+    });
+  }
+
   final List<Map<String, Object>> _perguntas = [
     {
       'texto': 'Qual a minha cor favorita',
@@ -125,6 +132,7 @@ class _PerguntaAppState extends State<PergutarApp> {
                 responder: _responder)
             : Resultado(
                 nota: _pontuacaoFinal,
+                quandoReiniciarQuest: _reiniciarQuest,
               ),
       ),
     );
