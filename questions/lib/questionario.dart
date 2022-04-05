@@ -6,7 +6,7 @@ import 'package:questions/btn_resposta.dart';
 class Questionario extends StatelessWidget {
   final List<Map<String, Object>> perguntas;
   final int novaPergunta;
-  final void Function() responder;
+  final void Function(int) responder;
 
   Questionario({
     required this.perguntas,
@@ -28,7 +28,8 @@ class Questionario extends StatelessWidget {
         ),
         // ...respostas
         ...respostas
-            .map((resp) => BtnResposta(resp['texto'].toString(), responder))
+            .map((resp) => BtnResposta(resp['texto'].toString(),
+                () => responder(int.parse(resp['nota'].toString()))))
             .toList()
       ],
     );

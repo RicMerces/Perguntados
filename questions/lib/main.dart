@@ -19,12 +19,16 @@ class PergutarApp extends StatefulWidget {
 
 class _PerguntaAppState extends State<PergutarApp> {
   var _novaPergunta = 0;
+  var _pontuacaoFinal = 0;
 
-  void qtdResponder() {
+  void qtdResponder(int nota) {
     if (temPerguntaSelecionada) {
       setState(() {
         _novaPergunta++;
+        _pontuacaoFinal += nota;
       });
+
+      print(_pontuacaoFinal);
     }
   }
 
@@ -33,9 +37,9 @@ class _PerguntaAppState extends State<PergutarApp> {
 
   bool get temPerguntaSelecionada => _novaPergunta < _perguntas.length;
 
-  void _responder() {
+  void _responder(int nota) {
     print('Pergunta respondida');
-    qtdResponder();
+    qtdResponder(nota);
   }
 
   final List<Map<String, Object>> _perguntas = [
